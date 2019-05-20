@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1> Login </h1>
+<form actions="" method="POST">
+  {{ form.hidden_tag() }}
+  <div class="form-group">
+    {{ form.username.label }}
+    {{ form.username(size=32, class='form-control') }}
+    {% for error in form.username.error %}
+    <span class="alert alert-danger" role="alert">
+      {{ error }}
+    </span>
+    {% endfor %}
+  </div>
+  <div class="form-group">
+    {{ form.password.label }}
+    {{ form.password(size=32, class='form-control') }}
+    {% for error in form.password.error %}
+    <span class="alert alert-danger" role="alert">
+      {{ error }}
+    </span>
+    {% endfor %}
+  </div>
+  <div class="form-check">
+    {{ form.remember_me(class='form-check-input') }}
+    {{ form.remember_me.label }}
+  </div>
+  {{ form.submit(class='btn btn-primary') }}
+</form>
+{% endblock %}
